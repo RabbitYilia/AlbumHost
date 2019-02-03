@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"PrinterSrv/models"
+	"AlbumHost/models"
 	"log"
 	"strings"
 
@@ -15,7 +15,7 @@ type UserController struct {
 
 func (c *UserController) Login() {
 	username := c.GetSession("Username")
-	Respjson := map[string]interface{}{"Server": "Printer Server"}
+	Respjson := map[string]interface{}{"Server": "AlbumHost Server"}
 	if username == nil {
 		Respjson["IsLogin"] = false
 		if strings.Contains(c.Ctx.Request.Header.Get("Accept"), "html") == true {
@@ -40,7 +40,7 @@ func (c *UserController) Login() {
 
 func (c *UserController) Logout() {
 	username := c.GetSession("Username")
-	Respjson := map[string]interface{}{"Server": "Printer Server"}
+	Respjson := map[string]interface{}{"Server": "AlbumHost Server"}
 	if username == nil {
 		c.Data["IsLogin"] = false
 		Respjson["IsLogin"] = false
@@ -65,7 +65,7 @@ func (c *UserController) Logout() {
 
 func (c *UserController) Register() {
 	username := c.GetSession("Username")
-	Respjson := map[string]interface{}{"Server": "Printer Server"}
+	Respjson := map[string]interface{}{"Server": "AlbumHost Server"}
 	if username == nil {
 		Respjson["IsLogin"] = false
 		if strings.Contains(c.Ctx.Request.Header.Get("Accept"), "html") == true {
@@ -90,7 +90,7 @@ func (c *UserController) Register() {
 
 func (c *UserController) PostRegister() {
 	username := c.GetSession("Username")
-	Respjson := map[string]interface{}{"Server": "Printer Server"}
+	Respjson := map[string]interface{}{"Server": "AlbumHost Server"}
 	if username == nil {
 		username := c.GetString("Username") // register.html中传过来的数据
 		password := c.GetString("Password")
@@ -184,7 +184,7 @@ func (c *UserController) PostRegister() {
 
 func (c *UserController) PostLogin() {
 	username := c.GetSession("Username")
-	Respjson := map[string]interface{}{"Server": "Printer Server"}
+	Respjson := map[string]interface{}{"Server": "AlbumHost Server"}
 	if username == nil {
 		username := c.GetString("Username") // login.html中传过来的数据
 		password := c.GetString("Password")
